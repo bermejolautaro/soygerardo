@@ -6,7 +6,8 @@ function rootReducer(state = initialState,action){
         case GET_GAMES:
             return{
             ...state,
-            allGames:action.payload
+            allGames:action.payload,
+           
         }
     
         default :
@@ -14,5 +15,3 @@ function rootReducer(state = initialState,action){
     }
 }
 export default rootReducer
-
-console.log(initialState)

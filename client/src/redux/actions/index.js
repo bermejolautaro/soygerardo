@@ -7,7 +7,7 @@ export function getGames(){
         const response = await axios('http://localhost:3001/api/videogames')
         return dispatch({
             type:"GET_GAMES",
-            payload: response.data
-        })
+            payload: response.data,
+        }) 
     }
 }
