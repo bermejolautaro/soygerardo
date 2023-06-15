@@ -6,13 +6,15 @@ import Detail from './views/detail/detail.component';
 
 function App() {
   return (
-<BrowserRouter>
-    <div className="App">
-      <Route path="/home" component={Home}/>
-      <Route path="/detail" component={Detail}/>
-      <Route path="/create" component={Create}/>
-      <h1>Henry Videogames Laucha Gay</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route path="/home/:id" component={Detail} />
+          <Route path="/home" component={Home} />
+          <Route path="/create" component={Create} />
+        </Switch>
+        <h1>Henry Videogames Laucha Gay</h1>
+      </div>
     </BrowserRouter>
   );
 }
