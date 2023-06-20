@@ -1,34 +1,36 @@
-// const game =[
-//     {
-//         id: 3498,
-//         name: "Grand Theft Auto V",
-//         backGroundImage:"https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
-//         rating: 4.47,
-//     }]
-import { Link } from "react-router-dom"
-function Card ({game}){
-    if (!game) return <div>asdasDasds</div>
-    const {name, image, genre, rating, id} = game 
-    
-    return (
-        <div style={{display: 'flex', gap: '1rem'}}>
-            <Link to={`home/${id}`}>
-            <div style={{
-                display: 'flex', 
-                flexDirection: 'column', 
-                justifyContent: 'center', 
-                alignItems: 'center',
-                background: '#222',
-                padding: '1rem',
-                borderRadius: '5px'
-                }}><h1>{name}</h1> 
-                <p><img src={image} width="250px"></img></p> 
-                <p>{rating}</p> 
-                <li>{genre}</li>
-                </div>
-                </Link>   
+import { Link } from "react-router-dom";
+import style from "./card.module.css";
+
+function Card({ game }) {
+  if (!game) return <div>asdasDasds</div>;
+
+  const { name, image, genres, rating, id } = game;
+
+  return (
+    <div className={style.CardContainer}>
+      <Link to={`home/${id}`} className={style.CardLink}>
+        <div className={style.Card}>
+          <div
+            className={style.CardImage}
+            style={{ backgroundImage: `url(${image})` }}
+          >
+            &nbsp;
+          </div>
+          <div className={style.CardContentContainer}>
+            <div className={style.CardContent}>
+            <span>{name}</span>
+            <span className={style.CardRating}>{rating}/5</span>
+            </div>
+            <div className={style.CardChips}>
+              {genres.map((x) => (
+                <span key={x.id} className={style.CardChip}>{x.name}</span>
+              ))}
+            </div>
+          </div>
         </div>
-    )
+      </Link>
+    </div>
+  );
 }
 
-export default Card
+export default Card;
